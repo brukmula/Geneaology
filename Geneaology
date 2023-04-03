@@ -1,0 +1,66 @@
+% This program lists the relationships in the geneaology of Jesus
+
+% father(x,y) means that the x is the father of Y 
+father(abraham, issac):- write('Abraham is the father of Issac\n').
+father(issac, jacob) :- write('Issac is the father of Jacob\n').
+father(jacob, judah):- write('Jacob is the father of Judah.\n'). 
+father(judah, perez):- write('Abraham is the father of Issac\n').
+father(judah, zerah):- write('Judah is the father of Zerah\n').
+father(perez, hezron):- write('Perez is the father of Hezron.\n').
+father(hezron, ram):- write('Hezron is the father of Ram.\n').
+father(ram, hmminadab):- write('Ram is the father of Amminadab.\n').
+father(amminadab, nahshon):- write('Amminadab is the father of Nahshon.\n'). 
+father(nahshon, salmon):- write('Nahshon is the father of Salmon.\n').
+father(salmon, boaz):- write('Salmon is the father of Boaz.\n').
+father(boaz, obed):- write('Boaz is the father of Obed.\n').
+father(obed, jesse):- write('Obed is the father of Jesse.\n').
+father(jesse, david):- write('Jesse is the father of David.\n').
+father(david, solomon):- write('David is the father of Solomon.\n').
+father(solomon, rehoboam):- write('Solomon is the father of Rehoboam.\n').
+father(rehoboam, abijah):- write('Rehoboam is the father of Abijah.\n'). 
+father(abijah, asa):- write('Abijah is the father of Asa.\n').
+father(asa, jehoshaphat):- write('Asa is the father of Jehoshaphat.\n').
+father(jehoshaphat, jehoram):- write('Jehoshaphat is the father of Jehoram\n').
+father(jehoram, uzziah):- write('Jehoram is the father of Uzziah\n').
+father(uzziah, jotham):- write('Uzziah is the father of Jotham\n').
+father(jotham, ahaz):- write('Jotham is the father of Ahaz\n').
+father(ahaz, hezekiah):- write('Ahaz is the father of Hezekiah\n').
+father(hezekiah, manasseh):- write('Hezekiah is the father of Manasseh\n').
+father(manasseh, amon):- write('Manasseh is the father of Amon\n').
+father(amon, josiah):- write('Amon is the father of Josiah\n').
+father(josiah, jeconiah):- write('Josiah is the father of Jeconiah\n').
+father(jeconiah, shealtiel):- write('Jeconiah is the father of Shealtiel\n').
+father(shealtiel, zerubbabel):- write('Shealtiel is the father of Zerubbabel\n').
+father(zerubbabel, abihud):- write('Zerubbabel is the father of Abihud\n').
+father(abihud, eliakim):- write('Abihud is the father of Eliakim\n').
+father(eliakim, azor):- write('Eliakim is the father of Azor\n').
+father(azor, zadok):- write('Azor is the father of Zadok\n').
+father(zadok, akim):- write('Zadok is the father of Akim\n').
+father(akim, elihud):- write('Akim is the father of Elihud\n').
+father(elihud, eleazar):- write('Elihud is the father of Eleazar\n').
+father(eleazar, matthan):- write('Eleazar is the father of Matthan\n').
+father(matthan, jacob):- write('Matthan is the father of Jacob\n').
+father(jacob, joseph):- write('Jacob is the father of Joseph\n').
+% Other Rules 
+
+% mother(x,y) represents x as the mother of y
+mother(tamar, perez) :- write('Tamar is the mother of Perez').
+mother(rahab, boaz):- write('Rahab is the mother of Boaz').
+mother(ruth, obed):- write('Ruth is the mother of Obed').
+mother(batsheba, solomon):- write('Bathsheba is the mother of Solomon').
+mother(mary, jesus):- write('Mary is the mother of Jesus').
+
+%Siblings 
+sibling(X,Y) :- 
+    father(Z,X), 
+    father(Z,Y), 
+    X \=Y.
+
+% Determine who is the grandfather of who.
+grandfather(X, Y) :-
+    father(X, Z),
+    father(Z, Y).
+
+% Determine who is the son of who.
+son(X, Y) :-
+    father(Y, X).
